@@ -52,3 +52,17 @@ async function getSimpler() {
 }
 
 console.log(getSimpler())
+
+/**
+ * 
+ * @description this function not handled the reject promise, to
+ * it throws unhandled promise rejections
+ */
+async function handleAsyncOperations() {
+    const a = await step();
+    const b = await step(a);
+    const c = await step(b);
+    console.log(a, b, c)
+    return [a, b, c]
+}
+console.log(handleAsyncOperations())
