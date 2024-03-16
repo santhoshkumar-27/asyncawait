@@ -1,3 +1,6 @@
+/**
+ * async and await reducess the call back hell
+ */
 function step(adsf = 1) {
     return Promise.reject(adsf)
 }
@@ -64,3 +67,34 @@ async function handleAsyncOperations() {
     return [a, b, c]
 }
 // console.log(handleAsyncOperations())
+
+async function asyncFunction() {
+    try {
+        const a = await step();
+        return [a, null];
+    } catch (e) {
+        return [null, e];
+    }
+}
+
+/**
+ * 
+ * @description uses the standarized error functions
+ * with returns of [data, error]
+ */
+async function handleProcess() {
+    const [data, error] = await asyncFunction();
+    if (error) {
+        return;
+    }
+    const [data1, error1] = await asyncFunction();
+    if (error1) {
+        return;
+    }
+    const [data2, error2] = await asyncFunction();
+    if (error2) {
+        return;
+    }
+}
+
+// console.log(handleProcess())
