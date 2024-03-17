@@ -4,6 +4,12 @@ function async1() {
     })
 }
 
+function async11() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => reject({status: 'true'}, 200))
+    })
+}
+
 
 async function singlePromiseResolve() {
 
@@ -12,13 +18,16 @@ async function singlePromiseResolve() {
 
 }
 
-singlePromiseResolve();
+// singlePromiseResolve();
 
 
 function multiplePromiseResolveWithAll() {
-    Promise.all([async1(), async1(), async1()]).then((value) => {
+    Promise.all([async1(), async1(), async11()]).then((value) => {
         console.log('value', value);
-    })
+    }).catch((reason) =>{
+        console.log('reason', reason);
+
+    } )
 }
 
 multiplePromiseResolveWithAll()
