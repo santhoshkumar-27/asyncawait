@@ -6,10 +6,7 @@ function async1() {
 
 
 async function singlePromiseResolve() {
-    // Promise.all([async1()]).then((value) => {
-    //     console.log('value', value);
 
-    // })
     const data = await async1();
     console.log('data', data);
 
@@ -18,3 +15,10 @@ async function singlePromiseResolve() {
 singlePromiseResolve();
 
 
+function multiplePromiseResolveWithAll() {
+    Promise.all([async1(), async1(), async1()]).then((value) => {
+        console.log('value', value);
+    })
+}
+
+multiplePromiseResolveWithAll()
