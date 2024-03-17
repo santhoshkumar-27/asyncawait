@@ -34,3 +34,15 @@ function multiplePromiseResolveWithAll() {
 }
 
 multiplePromiseResolveWithAll()
+
+
+function multiplePromiseResolveWithAllSettled() {
+    Promise.allSettled([async11(), async1(), async11()]).then((value) => {
+        console.log('value', value);
+    }).catch((reason) =>{
+        console.log('reason', reason);
+
+    } )
+}
+
+multiplePromiseResolveWithAllSettled()
