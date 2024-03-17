@@ -5,7 +5,7 @@ function async1() {
 }
 
 
-async function calle() {
+async function singlePromiseResolve() {
     // Promise.all([async1()]).then((value) => {
     //     console.log('value', value);
 
@@ -15,6 +15,6 @@ async function calle() {
 
 }
 
-calle();
+singlePromiseResolve();
 
 
